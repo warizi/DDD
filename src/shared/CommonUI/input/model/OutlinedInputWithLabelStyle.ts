@@ -17,7 +17,12 @@ export const InputStyle = {
     border: "none",
     outline: "none",
   },
-  "& input:focus": {
-    // 부모 요소 변경
+};
+
+export const InputFocusStyle = {
+  border: "2px solid #000",
+  "& label": {
+    color: "#000",
+    marginRight: "10px",
   },
 };

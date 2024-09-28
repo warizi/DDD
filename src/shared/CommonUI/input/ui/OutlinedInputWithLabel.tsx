@@ -1,5 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { InputStyle } from "@shared/CommonUI/input/model/OutlinedInputWithLabelStyle";
+import {
+  InputFocusStyle,
+  InputStyle,
+} from "@shared/CommonUI/input/model/OutlinedInputWithLabelStyle";
 import { useState } from "react";
 
 export const OutlinedInputWithLabel = ({
@@ -14,17 +17,10 @@ export const OutlinedInputWithLabel = ({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const isPassword = name === "password";
+  const isPassword = name.includes("password");
 
-  const focusStyle = isFocused
-    ? {
-        border: "2px solid #000",
-        "& label": {
-          color: "#000",
-          marginRight: "10px",
-        },
-      }
-    : {};
+  const focusStyle = isFocused ? InputFocusStyle : {};
+
   return (
     <div css={{ ...InputStyle, ...focusStyle }}>
       <label>{title}</label>
